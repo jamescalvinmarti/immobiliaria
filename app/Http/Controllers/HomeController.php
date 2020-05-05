@@ -19,7 +19,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function dashboard()
     {
         return view('dashboard');
     }
