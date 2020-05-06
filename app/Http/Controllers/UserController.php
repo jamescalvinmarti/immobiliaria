@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -32,43 +33,67 @@ class UserController extends Controller
     /**
      * Display a listing of the users
      *
-     * @param \App\User  $user
+     * @param Illuminate\Http\Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = new User();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->password = Hash::make($request['password']);
+        $user->save();
+
+        return redirect(route('user.index'))->withStatus(__('User successfully created.'));
+    }
+
+    /**
+     * Display edit form
+     *
+     * @param \App\User $user
      * @return \Illuminate\View\View
      */
-    public function store()
+    public function edit(User $user)
     {
-        return view('users.index');
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Display a listing of the users
      *
-     * @return \Illuminate\View\View
+     * @param Illuminate\Http\Request  $request
+     * @param \App\User $user
+     * @return Response
      */
-    public function edit()
+    public function update(Request $request, User $user)
     {
-        return view('users.edit');
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+        ]);
+
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->save();
+
+        return redirect(route('user.index'))->withStatus(__('User successfully updated.'));
     }
 
     /**
      * Display a listing of the users
      *
      * @param \App\User  $user
-     * @return \Illuminate\View\View
+     * @return Response
      */
-    public function update()
+    public function destroy(User $user)
     {
-        return view('users.index');
-    }
-
-    /**
-     * Display a listing of the users
-     *
-     * @param \App\User  $user
-     * @return \Illuminate\View\View
-     */
-    public function destroy()
-    {
-        return view('users.index');
+        $user->delete();
+        return redirect(route('user.index'))->withStatus(__('User successfully deleted.'));
     }
 }

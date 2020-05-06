@@ -16,6 +16,8 @@
                     </div>
                 </div>
                 <div class="card-body">
+
+                    @include('alerts.success')
                     
                     <div>
                         <table class="table tablesorter">
@@ -26,6 +28,7 @@
                                 <th scope="col"></th>
                             </tr></thead>
                             <tbody>
+                                
                                 @foreach ($users as $user)
                                     <tr>
                                         <td>{{ $user->name }}</td>
@@ -38,11 +41,15 @@
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     <a class="dropdown-item" href="{{ route('user.edit', ['user' => $user]) }}">Edit</a>
+                                                    @if ($user != Auth::user())
+                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$user->id}}">Delete</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>    
                                 @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -50,5 +57,36 @@
             </div>
         </div>
     </div>
+
+    @foreach ($users as $user)
+        @if ($user != Auth::user())
+            <!-- Modal -->
+            <div class="modal fade" id="modal-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel{{$user->id}}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel{{$user->id}}">{{ __('Delete') }} {{ $user->name }} </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You are about to delete this user. Are you sure?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>
+                            <form action="{{ route('user.destroy', [$user]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endforeach
 
 @endsection
