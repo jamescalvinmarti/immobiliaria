@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index(User $users)
     {
-        return view('users.index', ['users' => $users->paginate(15)]);
+        return view('backend.users.index', ['users' => $users->paginate(15)]);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('backend.users.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        return view('backend.users.edit', compact('user'));
     }
 
     /**

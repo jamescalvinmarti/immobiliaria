@@ -30,7 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);
 	Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
 	Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
-	Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -38,4 +37,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::resource('categories', 'CategoriesController', ['except' => ['show']]);
 });

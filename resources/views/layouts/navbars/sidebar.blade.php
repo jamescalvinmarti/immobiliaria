@@ -19,6 +19,13 @@
                 </a>
             </li>
 
+            <li @if ($pageSlug == 'categories') class="active " @endif>
+                <a href="{{ route('categories.index')  }}">
+                    <i class="tim-icons icon-tag"></i>
+                    <p>{{ __('Categories') }}</p>
+                </a>
+            </li>
+
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
