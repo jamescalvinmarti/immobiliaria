@@ -26,6 +26,13 @@
                 </a>
             </li>
 
+            <li @if ($pageSlug == 'zones') class="active " @endif>
+                <a href="{{ route('zones.index')  }}">
+                    <i class="tim-icons icon-square-pin"></i>
+                    <p>{{ __('Zones') }}</p>
+                </a>
+            </li>
+
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
