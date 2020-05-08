@@ -13228,7 +13228,7 @@ fieldset[disabled] .btn-link.active {
 .has-danger.input-group-focus .input-group-prepend .input-group-text,
 .has-danger.input-group-focus .input-group-append .input-group-text {
     border-color: #f33620;
-    color: #ec250d;
+    color: rgba(255, 255, 255, 0.8);
     background-color: rgba(222, 222, 222, 0.1);
 }
 
