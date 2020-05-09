@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Property;
+use App\Category;
+use App\Zone;
 
 class PropertiesController extends Controller
 {
@@ -13,7 +16,8 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        //
+        $properties = Property::paginate(15);
+        return view('backend.properties.index', compact('properties'));
     }
 
     /**
@@ -23,7 +27,9 @@ class PropertiesController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $zones = Zone::all();
+        return view('backend.properties.create', compact('categories', 'zones'));
     }
 
     /**
@@ -34,7 +40,36 @@ class PropertiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'regex:/^[0-9]+(\.[0-9][0-9]?)?$/'],
+            'surface' => ['required', 'integer'],
+            'category' => ['required', 'string'],
+            'zone' => ['required', 'string'],
+            'description' => ['required', 'string'],
+        ]);
+
+        $property = new Property();
+        $property->name = $request['name'];
+        $property->city = $request['city'];
+        $property->address = $request['address'];
+        $property->price = $request['price'];
+        $property->surface = $request['surface'];
+        $property->category_id = $request['category'];
+        $property->zone_id = $request['zone'];
+        $property->description = $request['description'];
+        $property->published = false;
+        if ($request['status'] == 'sale') {
+            $property->status = true;
+        } else {
+            $property->status = false;
+        }
+
+        $property->save();
+
+        return redirect(route('properties.index'))->withStatus(__('Property successfully created.'));
     }
 
     /**
@@ -45,7 +80,8 @@ class PropertiesController extends Controller
      */
     public function show($id)
     {
-        //
+        $property = Property::findOrFail($id);
+        return view('backend.properties.show', compact('property'));
     }
 
     /**
@@ -56,7 +92,10 @@ class PropertiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $zones = Zone::all();
+        $property = Property::findOrFail($id);
+        return view('backend.properties.edit', compact('property', 'categories', 'zones'));
     }
 
     /**
@@ -68,7 +107,35 @@ class PropertiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'regex:/^[0-9]+(\.[0-9][0-9]?)?$/'],
+            'surface' => ['required', 'integer'],
+            'category' => ['required', 'string'],
+            'zone' => ['required', 'string'],
+            'description' => ['required', 'string'],
+        ]);
+
+        $property = Property::findOrFail($id);
+        $property->name = $request['name'];
+        $property->city = $request['city'];
+        $property->address = $request['address'];
+        $property->price = $request['price'];
+        $property->surface = $request['surface'];
+        $property->category_id = $request['category'];
+        $property->zone_id = $request['zone'];
+        $property->description = $request['description'];
+        if ($request['status'] == 'sale') {
+            $property->status = true;
+        } else {
+            $property->status = false;
+        }
+
+        $property->save();
+
+        return redirect(route('properties.index'))->withStatus(__('Property successfully updated.'));
     }
 
     /**
@@ -79,6 +146,8 @@ class PropertiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $property = Property::findOrFail($id);
+        $property->delete();
+        return redirect(route('properties.index'))->withStatus(__('Property successfully deleted.'));
     }
 }

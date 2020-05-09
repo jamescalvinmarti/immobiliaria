@@ -39,4 +39,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::resource('categories', 'CategoriesController', ['except' => ['show']]);
 	Route::resource('zones', 'ZonesController', ['except' => ['show']]);
+	Route::resource('properties', 'PropertiesController');
 });

@@ -33,6 +33,13 @@
                 </a>
             </li>
 
+            <li @if ($pageSlug == 'properties') class="active " @endif>
+                <a href="{{ route('properties.index')  }}">
+                    <i class="fas fa-home"></i>
+                    <p>{{ __('Properties') }}</p>
+                </a>
+            </li>
+
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>

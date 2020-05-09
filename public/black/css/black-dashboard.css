@@ -2150,7 +2150,7 @@ textarea.form-control {
 .form-check-input {
     position: absolute;
     margin-top: 0.3rem;
-    margin-left: -1.25rem;
+    cursor: pointer;
 }
 
 .form-check-input:disabled~.form-check-label {
@@ -15320,7 +15320,7 @@ table.tablesorter thead tr .headerSortDown {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    padding-left: 25px;
+    margin-left: 25px;
     line-height: 18px;
     margin-bottom: 0;
     -webkit-transition: color 0.3s linear;
