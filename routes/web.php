@@ -24,12 +24,7 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 	Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
-	Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
-	Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);
-	Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
-	Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -40,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('categories', 'CategoriesController', ['except' => ['show']]);
 	Route::resource('zones', 'ZonesController', ['except' => ['show']]);
 	Route::resource('properties', 'PropertiesController');
+	Route::post('publish/{property}', ['uses' => 'PropertiesController@publishUnpublish', 'as' => 'properties.publish']);
 	Route::resource('images', 'ImagesController', ['only' => ['index', 'store', 'destroy']]);
 	Route::get('images/create/{property}', ['uses' => 'ImagesController@create', 'as' => 'images.create']);
 });

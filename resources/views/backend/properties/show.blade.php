@@ -11,12 +11,22 @@
                             <h4 class="card-title">{{ $property->name }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="#" class="btn btn-sm btn-primary">Publish</a>
+                            @if ($property->published)
+                                <a href="#" class="btn btn-sm btn-danger" onclick="event.preventDefault();  document.getElementById('publish-form').submit();">Unpublish</a>
+                            @else
+                                <a href="#" class="btn btn-sm btn-success" onclick="event.preventDefault();  document.getElementById('publish-form').submit();">Publish</a>
+                            @endif
+                            <form id="publish-form" action="{{ route('properties.publish', ['property' => $property]) }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                             <a href="{{ route('properties.edit', ['property' => $property]) }}" class="btn btn-sm btn-primary">Edit</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
+                    
+                    @include('alerts.success')
+
                     <div id="images">
                         <div class="row image-header">
                             <div class="col-8">
@@ -26,21 +36,89 @@
                                 <a href="{{ route('images.create', ['property' => $property]) }}" class="btn btn-sm btn-primary">Afegir Imatge</a>
                             </div>
                         </div>
+                        @if (!$property->images->isEmpty())
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="slideshow-container">
+                                        @foreach ($property->images as $image)
+                                            <div class="mySlides ">
+                                                <img src="{{ asset('black/img/') . '/' . $image->path }}" data-toggle="modal" data-target="#modal-{{$image->id}}" style="width:100%">
+                                            </div>
+                                        @endforeach
+                                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                    </div>
+                                    <div class="dots" style="text-align:center">
+                                        @foreach ($property->images as $index => $image)
+                                            <span class="dot" onclick="currentSlide({{$index+1}})"></span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="slideshow-container">
-                                    @foreach ($property->images as $image)
-                                        <div class="mySlides ">
-                                            <img src="{{ asset('black/img/') . '/' . $image->path }}" data-toggle="modal" data-target="#modal-{{$image->id}}" style="width:100%">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <h6>Name:</h6>
+                                            <p>{{ $property->name }}</p>
                                         </div>
-                                    @endforeach
-                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                                </div>
-                                <div class="dots" style="text-align:center">
-                                    @foreach ($property->images as $index => $image)
-                                        <span class="dot" onclick="currentSlide({{$index+1}})"></span>
-                                    @endforeach
+
+                                        <div class="form-group">
+                                            <h6>City:</h6>
+                                            <p>{{ $property->city }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Address:</h6>
+                                            <p>{{ $property->address }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Surface:</h6>
+                                            <p>{{ $property->surface }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Price:</h6>
+                                            <p>{{ $property->price }}€</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>City:</h6>
+                                            <p>{{ $property->city }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Category:</h6>
+                                            <p>{{ $property->category->name }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Zone:</h6>
+                                            <p>{{ $property->zone->name }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Estat:</h6>
+                                            @if ($property->status)
+                                                <td><span class="badge badge-primary">En Venta</span></td>
+                                            @else
+                                                <td><span class="badge badge-info">Per Llogar</span></td>
+                                            @endif
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Published:</h6>
+                                            @if ($property->published)
+                                                <td><span class="badge badge-success">Sí</span></td>
+                                            @else
+                                                <td><span class="badge badge-danger">No</span></td>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

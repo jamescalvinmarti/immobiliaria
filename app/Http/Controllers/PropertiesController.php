@@ -153,4 +153,26 @@ class PropertiesController extends Controller
         $property->delete();
         return redirect(route('properties.index'))->withStatus(__('Property successfully deleted.'));
     }
+
+    /**
+     * Publish or Unpublish the specified property.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function publishUnpublish($id)
+    {
+        $property = Property::findOrFail($id);
+        if ($property->published) {
+            $property->published = false;
+        } else {
+            $property->published = true;
+        }
+        $property->save();
+
+        if ($property->published) {
+            return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully published.'));
+        }
+        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully unpublished.'));
+    }
 }
