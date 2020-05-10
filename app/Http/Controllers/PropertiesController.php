@@ -147,6 +147,9 @@ class PropertiesController extends Controller
     public function destroy($id)
     {
         $property = Property::findOrFail($id);
+
+        // delete all the related images first, then the property
+        $property->images()->delete();
         $property->delete();
         return redirect(route('properties.index'))->withStatus(__('Property successfully deleted.'));
     }

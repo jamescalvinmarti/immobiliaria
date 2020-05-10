@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Image;
+use App\Property;
+use File;
 
 class ImagesController extends Controller
 {
@@ -21,9 +24,10 @@ class ImagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $property = Property::findOrFail($id);
+        return view('backend.images.create', compact('property'));
     }
 
     /**
@@ -34,7 +38,26 @@ class ImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'file', 'image'],
+            'property' => ['required', 'integer'],
+        ]);
+
+        $property = Property::findOrFail($request['property']);
+
+        // Store image in to the server
+        $file = $request->file('image');
+        $filename = time() . $property->name;
+        $path = public_path() . "/black/img/";
+        $file->move($path, $filename);
+
+        // Save image url to the database
+        $image = new Image();
+        $image->path = $filename;
+        $image->property_id = $property->id;
+        $image->save();
+
+        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully updated.'));
     }
 
     /**
@@ -79,6 +102,15 @@ class ImagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Image::findOrFail($id);
+        $property = $image->property;
+        $file = asset('black/img/') . '/' . $image->path;
+
+        if (File::exists($file)) {
+            File::delete($file);
+        }
+
+        $image->delete();
+        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Image successfully deleted.'));
     }
 }

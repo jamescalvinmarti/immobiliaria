@@ -40,4 +40,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('categories', 'CategoriesController', ['except' => ['show']]);
 	Route::resource('zones', 'ZonesController', ['except' => ['show']]);
 	Route::resource('properties', 'PropertiesController');
+	Route::resource('images', 'ImagesController', ['only' => ['index', 'store', 'destroy']]);
+	Route::get('images/create/{property}', ['uses' => 'ImagesController@create', 'as' => 'images.create']);
 });
