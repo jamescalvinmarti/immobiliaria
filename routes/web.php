@@ -13,21 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('home');
-});
+Route::get('/', ['uses' => 'FrontendController@home', 'as' => 'home']);
 
 Auth::routes();
 
-Auth::routes();
-
-Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard')->middleware('auth');
-
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
-});
-
-Route::group(['middleware' => 'auth'], function () {
+	Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
@@ -38,4 +29,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('publish/{property}', ['uses' => 'PropertiesController@publishUnpublish', 'as' => 'properties.publish']);
 	Route::resource('images', 'ImagesController', ['only' => ['index', 'store', 'destroy']]);
 	Route::get('images/create/{property}', ['uses' => 'ImagesController@create', 'as' => 'images.create']);
+	Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
 });

@@ -1,0 +1,15 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.navbar {
+    background: #19bd5c;
+}
+
+.navbar .navbar-brand {
+    margin-top: 0;
+}
+
+.navbar .navbar-nav .special-item a {
+    color: #1e1e2f;
+}

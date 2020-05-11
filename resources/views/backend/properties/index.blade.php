@@ -66,6 +66,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{ $properties->links() }}
                 </div>
             </div>
         </div>

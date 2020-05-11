@@ -18,6 +18,11 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item">
+                    <a href="{{ route('home') }}" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+                <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
                             <img src="{{ asset('black') }}/img/default-avatar.png" alt="{{ __('Profile Photo') }}">
