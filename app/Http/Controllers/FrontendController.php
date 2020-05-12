@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Zone;
+use App\Property;
 
 class FrontendController extends Controller
 {
@@ -13,6 +16,9 @@ class FrontendController extends Controller
      */
     public function home()
     {
-        return view('home');
+        $categories = Category::all();
+        $zones = Zone::all();
+        $properties = Property::where('published', true)->get();
+        return view('home', compact('categories', 'zones', 'properties'));
     }
 }

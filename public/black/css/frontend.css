@@ -8,8 +8,147 @@ body {
 
 .navbar .navbar-brand {
     margin-top: 0;
+    position: relative;
 }
 
 .navbar .navbar-nav .special-item a {
     color: #1e1e2f;
+}
+
+.navbar .nav-link:hover {
+    color: white;
+}
+
+.full-page>.content {
+    padding-top: 57px;
+}
+
+#search-params {
+    display: flex;
+    margin-top: 57px;
+    min-height: 70px;
+    height: auto;
+    padding: 16px;
+    background-color: white;
+}
+
+#search-params form {
+    display: block;
+    margin: 0 auto;
+}
+
+#search-params select,
+#search-params input {
+    display: inline-block;
+    height: 100%;
+    width: 150px;
+    margin: 0 10px;
+    padding: 3px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+#search-params .select2 {
+    display: inline-block;
+    width: 150px;
+    margin: 0 10px;
+    padding: 0 3px;
+}
+
+#search-params .select2-selection {
+    height: 100%;
+}
+
+#search-params .select2-selection span {
+    height: 100%;
+    line-height: 35px;
+}
+
+.select2-results__option {
+    color: black;
+}
+
+#search-params #submit {
+    cursor: pointer;
+    background: #19bd5c;
+    color: white;
+    font-weight: 400;
+    border: none;
+    transition: .3s;
+}
+
+#search-params #submit:hover {
+    background-color: #19bd5caa;
+}
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #282b30;
+    padding: 25px;
+}
+
+footer #footer {
+    height: 100%;
+}
+
+#footer .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#footer .social-media .social-media-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#footer .social-media .social-media-links a {
+    display: block;
+    color: white;
+    margin: 0 15px;
+    transition: .3s;
+}
+
+#footer .social-media .social-media-links a:hover {
+    color: #19bd5c;
+}
+
+#footer .footer-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#footer .footer-links a {
+    color: white;
+    font-size: 18px !important;
+    transition: .3s;
+}
+
+#footer .footer-links a:hover {
+    color: #19bd5c;
+}
+
+footer #copyright {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    #search-params {
+        display: none;
+    }
+
+    #search-params select,
+    #search-params input,
+    #search-params .select2 {
+        display: block;
+        margin: 10px 0;
+    }
 }

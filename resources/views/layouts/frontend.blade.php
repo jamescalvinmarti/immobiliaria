@@ -8,6 +8,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Black Dashboard') }}</title>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
         <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
@@ -30,7 +32,7 @@
                             @yield('content')
                         </div>
                     </div>
-                    @include('layouts.footer')
+                    @include('layouts.frontend.footer')
                 </div>
             </div>
 
@@ -44,6 +46,8 @@
         <!-- Chart JS -->
         {{-- <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script> --}}
         <!--  Notifications Plugin    -->
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
         <script src="{{ asset('black') }}/js/plugins/bootstrap-notify.js"></script>
 
         <script src="{{ asset('black') }}/js/frontend.js"></script>
