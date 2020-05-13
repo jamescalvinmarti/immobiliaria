@@ -81,6 +81,79 @@ body {
     background-color: #19bd5caa;
 }
 
+/* PROPERTIES */
+
+.properties-container {
+    display: flex;
+}
+
+.property-container {
+    height: 360px;
+    width: 350px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.property-container .image-container {
+    width: 100%;
+    height: 200px;
+}
+
+.property-container .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.properties-container .property-info {
+    text-align: left;
+    padding: 0 15px;
+}
+
+.properties-container .property-info .price {
+    display: block;
+    padding: 5px;
+    background-color: #19bd5c;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    border-radius: 5px;
+    margin-top: -15px;
+}
+
+.properties-container .status {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.properties-container .property-info .info-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.properties-container .property-info .category,
+.properties-container .property-info .zone {
+    font-weight: bold;
+    display: inline-block;
+    color: #525f7f;
+    text-align: center;
+    font-size: 15px;
+}
+
+.properties-container .property-info .name {
+    color: #19bd5c;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.properties-container .property-info .city {
+    font-weight: bold;
+}
+
 /* FOOTER */
 
 footer {

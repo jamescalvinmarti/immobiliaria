@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ['uses' => 'FrontendController@home', 'as' => 'home']);
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');

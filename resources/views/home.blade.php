@@ -26,16 +26,27 @@
     <div class="container">
         <div class="header-body text-center mb-7">
             <div class="row justify-content-center">
+                <h1>hdsioa</h1>
                 <div class="col-lg-12 properties-container">
                     @foreach ($properties as $property)
                         <div class="property-container">
                             <div class="image-container">
-                                <img src="{{ asset('black/img') . '/' . $property->images->first() }}" alt="">
+                                <img src="{{ asset('black/img') . '/' . $property->images->first()->path }}" alt="">
                             </div>
                             <div class="property-info">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <span class="price">{{ money_format('%.2n', $property->price) }} €{{ $property->status ? '' : '/M' }}</span>
+                                        <span class="status">{{ $property->status ? 'En Venta' : 'Lloguer' }}</span>
                                         
+                                        <div class="info-container">
+                                            <span class="category"><i class="fas fa-building"></i> {{ $property->category->name }}</span>
+                                            <span class="zone">{{ $property->zone->name }}</span>
+                                        </div>
+                                        
+                                        <h5 class="name">{{ ucfirst($property->name) }}</h5>
+
+                                        <span class="city"><i class="fas fa-map-marker-alt"></i> {{ ucfirst($property->city) }}</span> <span class="address">{{ $property->address }}</span>
                                     </div>
                                 </div>
                             </div>
