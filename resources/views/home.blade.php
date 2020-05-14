@@ -36,8 +36,10 @@
                             <div class="property-info">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <span class="price">{{ money_format('%.2n', $property->price) }} €{{ $property->status ? '' : '/M' }}</span>
-                                        <span class="status">{{ $property->status ? 'En Venta' : 'Lloguer' }}</span>
+                                        <div class="floating-info">
+                                            <span class="price">{{ number_format($property->price, 0, ',', '.') }} €{{ $property->status ? '' : '/M' }}</span>
+                                            <span class="surface">{{ $property->surface }}&#13217;</span>
+                                        </div>
                                         
                                         <div class="info-container">
                                             <span class="category"><i class="fas fa-building"></i> {{ $property->category->name }}</span>
@@ -49,6 +51,7 @@
                                         <span class="city"><i class="fas fa-map-marker-alt"></i> {{ ucfirst($property->city) }}</span> <span class="address">{{ $property->address }}</span>
                                     </div>
                                 </div>
+                                <span class="status">{{ $property->status ? 'En Venta' : 'Lloguer' }}</span>
                             </div>
                         </div>
                     @endforeach

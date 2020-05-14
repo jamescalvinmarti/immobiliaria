@@ -78,7 +78,7 @@
 
                                         <div class="form-group">
                                             <h6>Surface:</h6>
-                                            <p>{{ $property->surface }}</p>
+                                            <p>{{ $property->surface }}&#13217;</p>
                                         </div>
 
                                         <div class="form-group">
