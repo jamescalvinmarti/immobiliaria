@@ -12,7 +12,7 @@
             <a href="{{ route('home') }}">{{ __('Home') }}</a>
             <a href="{{ route('home') }}">{{ __('Propietats') }}</a>
             <a href="{{ route('home') }}">{{ __('About') }}</a>
-            <a href="{{ route('home') }}">{{ __('Contacte') }}</a>
+            <a href="{{ route('contact') }}">{{ __('Contacte') }}</a>
         </div>
     </div>
     <div class="row">

@@ -40,6 +40,13 @@
                 </a>
             </li>
 
+            <li @if ($pageSlug == 'messages') class="active " @endif>
+                <a href="{{ route('messages.index')  }}">
+                    <i class="far fa-envelope"></i>
+                    <p>{{ __('Missatges') }}</p>
+                </a>
+            </li>
+
             <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>

@@ -22,7 +22,7 @@
                     <a href="#" class="nav-link">{{ __('About Us') }}</a>
                 </li>
                 <li class="nav-item ">
-                    <a href="#" class="nav-link">{{ __('Contacte') }}</a>
+                    <a href="{{ route('contact') }}" class="nav-link">{{ __('Contacte') }}</a>
                 </li>
                 @auth
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

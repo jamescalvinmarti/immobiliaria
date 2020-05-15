@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ['uses' => 'FrontendController@home', 'as' => 'home']);
+Route::get('/contact', ['uses' => 'FrontendController@contact', 'as' => 'contact']);
+Route::post('/contact', ['uses' => 'FrontendController@storeMessage', 'as' => 'storemessage']);
 
 Auth::routes(['register' => false]);
 
@@ -30,4 +32,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('images', 'ImagesController', ['only' => ['index', 'store', 'destroy']]);
 	Route::get('images/create/{property}', ['uses' => 'ImagesController@create', 'as' => 'images.create']);
 	Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
+	Route::resource('messages', 'MessagesController', ['only' => ['index', 'show', 'destroy']]);
 });
