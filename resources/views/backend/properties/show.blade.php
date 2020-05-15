@@ -42,7 +42,7 @@
                                     <div class="slideshow-container">
                                         @foreach ($property->images as $image)
                                             <div class="mySlides ">
-                                                <img src="{{ asset('black/img/') . '/' . $image->path }}" data-toggle="modal" data-target="#modal-{{$image->id}}" style="width:100%">
+                                                <img src="{{ $image->path }}" data-toggle="modal" data-target="#modal-{{$image->id}}" style="width:100%">
                                             </div>
                                         @endforeach
                                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -140,7 +140,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ asset('black/img/') . '/' . $image->path }}">
+                        <img src="{{ $image->path }}">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>

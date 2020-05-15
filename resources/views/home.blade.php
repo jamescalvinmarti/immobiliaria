@@ -31,7 +31,7 @@
                     @foreach ($properties as $property)
                         <div class="property-container">
                             <div class="image-container">
-                                <img src="{{ asset('black/img') . '/' . $property->images->first()->path }}" alt="">
+                                <img src="{{ $property->images->first()->path }}" alt="">
                             </div>
                             <div class="property-info">
                                 <div class="row">

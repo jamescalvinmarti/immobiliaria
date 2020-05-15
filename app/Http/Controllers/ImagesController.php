@@ -5,20 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Image;
 use App\Property;
-use File;
+use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -45,53 +35,19 @@ class ImagesController extends Controller
 
         $property = Property::findOrFail($request['property']);
 
-        // Store image in to the server
-        $file = $request->file('image');
-        $filename = time() . $property->name;
-        $path = public_path() . "/black/img/";
-        $file->move($path, $filename);
+        $path = $request->file('image')->store('images', 's3');
+        $filename = basename($path);
 
-        // Save image url to the database
+        $exists = Storage::disk('s3')->exists($filename);
+
         $image = new Image();
-        $image->path = $filename;
+        $image->filename = basename($path);
+        $image->path = Storage::disk('s3')->url($path);
         $image->property_id = $property->id;
+
         $image->save();
 
         return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully updated.'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
@@ -104,13 +60,8 @@ class ImagesController extends Controller
     {
         $image = Image::findOrFail($id);
         $property = $image->property;
-        $file = asset('black/img/') . '/' . $image->path;
-
-        if (File::exists($file)) {
-            File::delete($file);
-        }
-
         $image->delete();
+
         return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Image successfully deleted.'));
     }
 }
