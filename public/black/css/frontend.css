@@ -28,19 +28,52 @@ h1.title {
 }
 
 .full-page>.content {
-    padding-top: 57px;
+    padding-top: 0;
+}
+
+
+/************************ BUSCADOR ************************/
+
+
+.accordion {
+    margin-top: 57px;
+}
+
+.accordion .card {
+    background-color: white;
+    padding: 15px;
+}
+
+.accordion .card .card-header {
+    padding-top: 0;
+    display: flex;
+}
+
+.accordion .card .card-header h2 {
+    margin: 0 auto;
+    color: #344675;
+}
+
+.accordion .card .card-header button {
+    font-size: 22px;
+    color: #344675;
+}
+
+.accordion .card .card-header button:hover,
+.accordion .card .card-header button:focus {
+    font-size: 22px;
+    color: #344675 !important;
 }
 
 #search-params {
     display: flex;
-    margin-top: 57px;
     min-height: 70px;
     height: auto;
     padding: 16px;
     background-color: white;
 }
 
-#search-params form {
+#search-params #form {
     display: block;
     margin: 0 auto;
 }
@@ -89,11 +122,12 @@ h1.title {
     background-color: #19bd5caa;
 }
 
-/* PROPERTIES */
+/************************ PROPERTIES ************************/
 
 .properties-container {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .property-container {
@@ -101,6 +135,7 @@ h1.title {
     width: 350px;
     background-color: white;
     border-radius: 4px;
+    margin: 15px 0;
 }
 
 .property-container .image-container {
@@ -144,8 +179,6 @@ h1.title {
     display: block;
     font-weight: bold;
     font-size: 14px;
-    position: absolute;
-    top: 10px;
     padding: 5px;
     color: white;
     background-color: #2f2626;
@@ -182,7 +215,20 @@ h1.title {
     font-weight: bold;
 }
 
-/* CONTACT FORM */
+.pagination {
+    margin-top: 50px;
+}
+
+.pagination li.page-item a {
+    color: #1e1e2f;
+}
+
+.pagination li.page-item.active span {
+    background-color: #19bd5c;
+    border-color: #19bd5c;
+}
+
+/************************ CONTACT FORM ************************/
 
 #contact-form {
     display: flex;
@@ -221,7 +267,7 @@ h1.title {
     background-color: #19bd5caa;
 }
 
-/* FOOTER */
+/************************ FOOTER ************************/
 
 footer {
     width: 100%;
@@ -280,26 +326,44 @@ footer #copyright {
     text-align: center;
 }
 
-@media (max-width: 768px) {
+/************************ MOBILE ************************/
 
-    #search-params {
-        display: none;
-    }
+@media (max-width: 768px) {
 
     #search-params select,
     #search-params input,
     #search-params .select2 {
         display: block;
         margin: 10px 0;
+        height: auto;
     }
 
-    /* CONTACT FORM */
+    #search-params .select2-selection,
+    #search-params .select2-selection span {
+        height: auto;
+    }
+
+    #search-params .select2-selection span b {
+        margin-top: 15px;
+    }
+
+    .properties-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .properties-container .property-container {
+        margin: 20px 0;
+    }
+
+    /************************ CONTACT FORM ************************/
 
     #contact-form form {
         width: 100%;
     }
 
-    /* FOOTER */
+    /************************ FOOTER ************************/
 
     footer {
         padding-top: 25px;

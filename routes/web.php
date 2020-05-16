@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['uses' => 'FrontendController@home', 'as' => 'home']);
 Route::get('/contact', ['uses' => 'FrontendController@contact', 'as' => 'contact']);
 Route::post('/contact', ['uses' => 'FrontendController@storeMessage', 'as' => 'storemessage']);
+Route::get('/property/list', ['uses' => 'FrontendController@properties', 'as' => 'property-list']);
+Route::get('/property/info', ['uses' => 'FrontendController@property', 'as' => 'property-info']);
+Route::get('/property/list/search', ['uses' => 'FrontendController@search', 'as' => 'search']);
 
 Auth::routes(['register' => false]);
 
