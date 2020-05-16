@@ -181,7 +181,7 @@ h1.title {
     font-size: 14px;
     padding: 5px;
     color: white;
-    background-color: #2f2626;
+    background-color: #ef4153;
     font-weight: bold;
     width: fit-content;
     border-radius: 5px;
@@ -234,6 +234,66 @@ h1.title {
 }
 
 /************************ PROPERTY INFO ************************/
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.info .price,
+.info .status,
+.info .surface {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.info .price {
+    background-color: #19bd5c;
+}
+
+.info .status {
+    background-color: #ef4153;
+}
+
+.info .surface {
+    background-color: #3bb5ee;
+}
+
+.description {
+    text-align: left;
+}
+
+.description p {
+    font-size: 16px;
+    color: #1e1e2f;
+    margin: 50px 0;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    color: #1e1e2f;
+    font-size: 20px;
+    margin: 50px 0;
+}
+
+.location span {
+    margin: 5px 0;
+}
+
+.location .city {
+    font-weight: bold;
+}
+
+.location .category {
+    color: #1e1e2f;
+    font-size: 20px;
+}
+
 .slideshow-container {
     height: 450px;
 }

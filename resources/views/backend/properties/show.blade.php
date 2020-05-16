@@ -102,6 +102,11 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <h6>Descripció:</h6>
+                                            <p>{{ $property->description }}</p>
+                                        </div>
+
+                                        <div class="form-group">
                                             <h6>Estat:</h6>
                                             @if ($property->status)
                                                 <td><span class="badge badge-primary">En Venta</span></td>

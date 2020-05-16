@@ -5,6 +5,25 @@
         <div class="row justify-content-center">
             <div class="col-sm-12">
                 <h1 class="title">{{ ucfirst($property->name) }}</h1>
+
+                <div class="info">
+                    <h4 class="price">{{ number_format($property->price, 0, ',', '.') }} €{{ $property->status ? '' : '/M' }}</h4>
+                    <h4 class="status">{{ $property->status ? 'En Venta' : 'Lloguer' }}</h4>
+                    <h4 class="surface">{{ $property->surface }}&#13217;</h4>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 description">
+                        <p>{{ $property->description }}</p>
+                    </div>
+                    <div class="col-lg-6 location">
+                        <span class="zone">{{ $property->zone->name }}</span>
+                        <span class="category"><i class="fas fa-building"></i> {{ $property->category->name }}</span>
+                        <span class="city"><i class="fas fa-map-marker-alt"></i> {{ ucfirst($property->city) }}</span>
+                        <span class="address">{{ $property->address }}</span>
+                    </div>
+                </div>
+
     
                 @if (!$property->images->isEmpty())
                     <div class="row">
