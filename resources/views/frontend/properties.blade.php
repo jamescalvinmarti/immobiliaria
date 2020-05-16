@@ -64,7 +64,7 @@
                                         <span class="zone">{{ $property->zone->name }}</span>
                                     </div>
                                     
-                                    <h5 class="name">{{ ucfirst($property->name) }}</h5>
+                                    <a href="{{ route('property-info', ['property' => $property]) }}" class="link"><h5 class="name">{{ ucfirst($property->name) }}</h5></a>
 
                                     <span class="city"><i class="fas fa-map-marker-alt"></i> {{ ucfirst($property->city) }}</span> <span class="address">{{ $property->address }}</span>
                                 </div>

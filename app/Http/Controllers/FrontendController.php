@@ -107,7 +107,7 @@ class FrontendController extends Controller
                     $output .= '<span class="category"><i class="fas fa-building"></i> ' . $property->category->name . '</span>';
                     $output .= '<span class="zone">' . $property->zone->name . '</span>';
                     $output .= '</div>';
-                    $output .= '<h5 class="name">' . ucfirst($property->name) . '</h5>';
+                    $output .= '<a href="' . route('property-info', ['property' => $property]) . '" class="link"><h5 class="name">' . ucfirst($property->name) . '</h5></a>';
                     $output .= '<span class="city"><i class="fas fa-map-marker-alt"></i> ' . ucfirst($property->city) . '</span> <span class="address">' . $property->address . '</span>';
                     $output .= '</div>';
                     $output .= '</div>';
@@ -121,5 +121,17 @@ class FrontendController extends Controller
             }
             return Response($output);
         }
+    }
+
+    /**
+     * Show the property info
+     *
+     * @return Response
+     */
+    public function info($id)
+    {
+        $property = Property::findOrFail($id);
+        $samezone = Property::where('zone_id', $property->zone_id)->paginate(5);
+        return view('frontend.info', compact('property', 'samezone'));
     }
 }

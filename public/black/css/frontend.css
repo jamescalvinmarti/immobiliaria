@@ -7,7 +7,7 @@ h1 {
 }
 
 h1.title {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .navbar {
@@ -209,6 +209,11 @@ h1.title {
     font-weight: bold;
     font-size: 18px;
     margin-top: 15px;
+    transition: .3s;
+}
+
+.properties-container .property-info .name:hover {
+    color: #19bd5caa;
 }
 
 .properties-container .property-info .city {
@@ -226,6 +231,33 @@ h1.title {
 .pagination li.page-item.active span {
     background-color: #19bd5c;
     border-color: #19bd5c;
+}
+
+/************************ PROPERTY INFO ************************/
+.slideshow-container {
+    height: 450px;
+}
+
+.prev {
+    left: 5px;
+}
+
+.next {
+    right: 5px;
+}
+
+.mySlides img {
+    height: 100%;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: #19bd5c;
 }
 
 /************************ CONTACT FORM ************************/

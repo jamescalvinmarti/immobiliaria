@@ -19,6 +19,7 @@ Route::post('/contact', ['uses' => 'FrontendController@storeMessage', 'as' => 's
 Route::get('/property/list', ['uses' => 'FrontendController@properties', 'as' => 'property-list']);
 Route::get('/property/info', ['uses' => 'FrontendController@property', 'as' => 'property-info']);
 Route::get('/property/list/search', ['uses' => 'FrontendController@search', 'as' => 'search']);
+Route::get('/property-info/{property}', ['uses' => 'FrontendController@info', 'as' => 'property-info']);
 
 Auth::routes(['register' => false]);
 
