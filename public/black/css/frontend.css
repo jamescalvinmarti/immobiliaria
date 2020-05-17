@@ -32,6 +32,67 @@ h1.title {
 }
 
 
+/************************ HOME PAGE ************************/
+
+h1.homepage {
+    margin-top: 150px;
+}
+
+h2.title {
+    color: #1e1e2f;
+}
+
+.home-content-container {
+    margin: 75px 0;
+    height: auto;
+    min-height: 250px;
+}
+
+.home-content-container .image-container {
+    height: 100%;
+}
+
+.home-content-container .image-container img {
+    height: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.home-content {
+    height: 250px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.home-content p,
+.home-content h5 {
+    color: #1e1e2f;
+}
+
+.home-content h5 {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.contact {
+    width: 100%;
+    margin-top: 75px;
+}
+
+.contact h4 a {
+    background-color: #19bd5c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.contact h4 a:hover {
+    background-color: #19bd5caa;
+}
+
+
 /************************ BUSCADOR ************************/
 
 
@@ -241,6 +302,13 @@ h1.title {
     margin: 50px 0;
 }
 
+.info-container {
+    background-color: white;
+    margin-bottom: 75px;
+    box-shadow: 0 20px 30px -16px rgba(9, 9, 16, .2);
+    padding: 0 25px;
+}
+
 .info .price,
 .info .status,
 .info .surface {
@@ -421,6 +489,27 @@ footer #copyright {
 /************************ MOBILE ************************/
 
 @media (max-width: 768px) {
+
+    /************************ HOME PAGE ************************/
+
+    .home-content-container {
+        margin: 50px 0;
+    }
+
+    .home-content-container .image-container {
+        height: 0;
+    }
+
+    .home-content-container .image-container img {
+        display: none;
+    }
+
+    .home-content {
+        height: auto;
+        box-shadow: 0 20px 30px -16px rgba(9, 9, 16, .2);
+    }
+
+    /************************ BUSCADOR ************************/
 
     #search-params select,
     #search-params input,

@@ -12,7 +12,7 @@
                     <h4 class="surface">{{ $property->surface }}&#13217;</h4>
                 </div>
 
-                <div class="row">
+                <div class="row info-container">
                     <div class="col-lg-6 description">
                         <p>{{ $property->description }}</p>
                     </div>
