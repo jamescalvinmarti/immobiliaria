@@ -27,12 +27,12 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" placeholder="{{ __('Password') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
+                            <input type="password" placeholder="Contrasenya" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
                             @include('alerts.feedback', ['field' => 'password'])
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Get Started') }}</button>
+                        <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">Entrar</button>
                     </div>
                 </div>
             </form>

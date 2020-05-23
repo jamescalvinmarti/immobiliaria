@@ -19,7 +19,7 @@
                             <form id="publish-form" action="{{ route('properties.publish', ['property' => $property]) }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                            <a href="{{ route('properties.edit', ['property' => $property]) }}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{{ route('properties.edit', ['property' => $property]) }}" class="btn btn-sm btn-primary">Editar</a>
                         </div>
                     </div>
                 </div>
@@ -62,42 +62,42 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <h6>Name:</h6>
+                                            <h6>Nom:</h6>
                                             <p>{{ $property->name }}</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>City:</h6>
+                                            <h6>Ciutat:</h6>
                                             <p>{{ $property->city }}</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>Address:</h6>
+                                            <h6>Adreça:</h6>
                                             <p>{{ $property->address }}</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>Surface:</h6>
+                                            <h6>Superfície:</h6>
                                             <p>{{ $property->surface }}&#13217;</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>Price:</h6>
+                                            <h6>Preu:</h6>
                                             <p>{{ $property->price }}€</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>City:</h6>
+                                            <h6>Ciutat:</h6>
                                             <p>{{ $property->city }}</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>Category:</h6>
+                                            <h6>Categoria:</h6>
                                             <p>{{ $property->category->name }}</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>Zone:</h6>
+                                            <h6>Zona:</h6>
                                             <p>{{ $property->zone->name }}</p>
                                         </div>
 
@@ -116,7 +116,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <h6>Published:</h6>
+                                            <h6>Publicada:</h6>
                                             @if ($property->published)
                                                 <td><span class="badge badge-success">Sí</span></td>
                                             @else
@@ -148,7 +148,7 @@
                         <img src="{{ $image->path }}">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel·lar') }}</button>
                         <form action="{{ route('images.destroy', [$image]) }}" method="POST">
                             @method('DELETE')
                             @csrf

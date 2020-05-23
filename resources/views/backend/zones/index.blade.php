@@ -11,7 +11,7 @@
                             <h4 class="card-title">Zones</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('zones.create') }}" class="btn btn-sm btn-primary">Add zone</a>
+                            <a href="{{ route('zones.create') }}" class="btn btn-sm btn-primary">Afegir Zona</a>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div>
                         <table class="table tablesorter">
                             <thead class=" text-primary">
-                                <tr><th scope="col">Name</th>
+                                <tr><th scope="col">Nom</th>
                                 <th scope="col"></th>
                             </tr></thead>
                             <tbody>
@@ -36,8 +36,8 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a class="dropdown-item" href="{{ route('zones.edit', ['zone' => $zone]) }}">Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$zone->id}}">Delete</a>
+                                                    <a class="dropdown-item" href="{{ route('zones.edit', ['zone' => $zone]) }}">Editar</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$zone->id}}">Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -59,16 +59,16 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel{{$zone->id}}">{{ __('Delete') }} {{ $zone->name }} </h5>
+                        <h5 class="modal-title" id="ModalLabel{{$zone->id}}">{{ __('Eliminar') }} {{ $zone->name }} </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>You are about to delete this zone. Are you sure?</p>
+                        <p>Estàs a punt d'eliminar aquesta zona. Estàs segur?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel·lar') }}</button>
                         <form action="{{ route('zones.destroy', [$zone]) }}" method="POST">
                             @method('DELETE')
                             @csrf

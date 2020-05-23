@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a href="{{ route('home') }}" class="nav-link">{{ __('Home') }}</a>
+                    <a href="{{ route('home') }}" class="nav-link">Inici</a>
                 </li>
                 <li class="nav-item ">
                     <a href="{{ route('property-list') }}" class="nav-link">{{ __('Propietats') }}</a>

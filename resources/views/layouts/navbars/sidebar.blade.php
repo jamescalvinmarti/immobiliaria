@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('BD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('Black Dashboard') }}</a>
+            <a href="#" class="simple-text logo-mini">{{ __('GI') }}</a>
+            <a href="#" class="simple-text logo-normal">{{ __('Gimmobiliaria') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
@@ -15,7 +15,7 @@
             <li @if ($pageSlug == 'users') class="active " @endif>
                 <a href="{{ route('user.index')  }}">
                     <i class="tim-icons icon-bullet-list-67"></i>
-                    <p>{{ __('User Management') }}</p>
+                    <p>Usuaris</p>
                 </a>
             </li>
 
@@ -36,7 +36,7 @@
             <li @if ($pageSlug == 'properties') class="active " @endif>
                 <a href="{{ route('properties.index')  }}">
                     <i class="fas fa-home"></i>
-                    <p>{{ __('Properties') }}</p>
+                    <p>Propietats</p>
                 </a>
             </li>
 
@@ -44,13 +44,6 @@
                 <a href="{{ route('messages.index')  }}">
                     <i class="far fa-envelope"></i>
                     <p>{{ __('Missatges') }}</p>
-                </a>
-            </li>
-
-            <li @if ($pageSlug == 'maps') class="active " @endif>
-                <a href="{{ route('pages.maps') }}">
-                    <i class="tim-icons icon-pin"></i>
-                    <p>{{ __('Maps') }}</p>
                 </a>
             </li>
         </ul>

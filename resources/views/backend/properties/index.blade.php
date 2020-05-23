@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Properties'), 'pageSlug' => 'properties'])
+@extends('layouts.app', ['page' => __('Propietats'), 'pageSlug' => 'properties'])
 
 @section('content')
 
@@ -8,10 +8,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Properties</h4>
+                            <h4 class="card-title">Propietats</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('properties.create') }}" class="btn btn-sm btn-primary">Add property</a>
+                            <a href="{{ route('properties.create') }}" class="btn btn-sm btn-primary">Afegir Propietat</a>
                         </div>
                     </div>
                 </div>
@@ -22,11 +22,11 @@
                     <div>
                         <table class="table tablesorter">
                             <thead class=" text-primary">
-                                <tr><th scope="col">Name</th>
-                                <th scope="col">City</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Published</th>
+                                <tr><th scope="col">Nom</th>
+                                <th scope="col">Ciutat</th>
+                                <th scope="col">Preu</th>
+                                <th scope="col">Estat</th>
+                                <th scope="col">Publicada</th>
                                 <th scope="col"></th>
                             </tr></thead>
                             <tbody>
@@ -54,9 +54,9 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a class="dropdown-item" href="{{ route('properties.show', ['property' => $property]) }}">Show</a>
-                                                    <a class="dropdown-item" href="{{ route('properties.edit', ['property' => $property]) }}">Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$property->id}}">Delete</a>
+                                                    <a class="dropdown-item" href="{{ route('properties.show', ['property' => $property]) }}">Info</a>
+                                                    <a class="dropdown-item" href="{{ route('properties.edit', ['property' => $property]) }}">Editar</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$property->id}}">Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -78,16 +78,16 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel{{$property->id}}">{{ __('Delete') }} {{ $property->name }} </h5>
+                        <h5 class="modal-title" id="ModalLabel{{$property->id}}">{{ __('Eliminar') }} {{ $property->name }} </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>You are about to delete this property. Are you sure?</p>
+                        <p>Estàs a punt d'eliminar aquesta propietat. Estàs segur?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel·lar') }}</button>
                         <form action="{{ route('properties.destroy', [$property]) }}" method="POST">
                             @method('DELETE')
                             @csrf

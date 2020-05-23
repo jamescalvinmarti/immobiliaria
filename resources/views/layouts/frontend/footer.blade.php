@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="col-md-8 footer-links">
-            <a href="{{ route('home') }}">{{ __('Home') }}</a>
+            <a href="{{ route('home') }}">Inici</a>
             <a href="{{ route('property-list') }}">{{ __('Propietats') }}</a>
             <a href="{{ route('contact') }}">{{ __('Contacte') }}</a>
         </div>

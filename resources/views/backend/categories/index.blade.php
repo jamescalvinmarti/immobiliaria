@@ -11,7 +11,7 @@
                             <h4 class="card-title">Categories</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('categories.create') }}" class="btn btn-sm btn-primary">Add category</a>
+                            <a href="{{ route('categories.create') }}" class="btn btn-sm btn-primary">Afegir Categoria</a>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div>
                         <table class="table tablesorter">
                             <thead class=" text-primary">
-                                <tr><th scope="col">Name</th>
+                                <tr><th scope="col">Nom</th>
                                 <th scope="col"></th>
                             </tr></thead>
                             <tbody>
@@ -36,8 +36,8 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a class="dropdown-item" href="{{ route('categories.edit', ['category' => $category]) }}">Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$category->id}}">Delete</a>
+                                                    <a class="dropdown-item" href="{{ route('categories.edit', ['category' => $category]) }}">Editar</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-{{$category->id}}">Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -59,16 +59,16 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel{{$category->id}}">{{ __('Delete') }} {{ $category->name }} </h5>
+                        <h5 class="modal-title" id="ModalLabel{{$category->id}}">{{ __('Eliminar') }} {{ $category->name }} </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>You are about to delete this category. Are you sure?</p>
+                        <p>Estàs a punt d'eliminar aquesta categoria. Estàs segur?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel') }}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Cancel·lar') }}</button>
                         <form action="{{ route('categories.destroy', [$category]) }}" method="POST">
                             @method('DELETE')
                             @csrf
