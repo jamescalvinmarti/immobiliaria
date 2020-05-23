@@ -14,7 +14,7 @@
                             @if ($property->published)
                                 <a href="#" class="btn btn-sm btn-danger" onclick="event.preventDefault();  document.getElementById('publish-form').submit();">Unpublish</a>
                             @else
-                                <a href="#" class="btn btn-sm btn-success" onclick="event.preventDefault();  document.getElementById('publish-form').submit();">Publish</a>
+                                <a href="#" class="btn btn-sm btn-success" onclick="event.preventDefault();  document.getElementById('publish-form').submit();">Publicar</a>
                             @endif
                             <form id="publish-form" action="{{ route('properties.publish', ['property' => $property]) }}" method="POST" style="display: none;">
                                 @csrf
