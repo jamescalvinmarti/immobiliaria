@@ -17,10 +17,7 @@ class FrontendController extends Controller
      */
     public function home()
     {
-        $categories = Category::all();
-        $zones = Zone::all();
-        $properties = Property::where('published', true)->get();
-        return view('home', compact('categories', 'zones', 'properties'));
+        return view('home');
     }
 
     /**

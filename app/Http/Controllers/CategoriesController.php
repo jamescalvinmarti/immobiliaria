@@ -44,7 +44,7 @@ class CategoriesController extends Controller
         $category->name = $request['name'];
         $category->save();
 
-        return redirect(route('categories.index'))->withStatus(__('Category successfully created.'));
+        return redirect(route('categories.index'))->withStatus(__('Categoria creada correctament.'));
     }
 
     /**
@@ -77,7 +77,7 @@ class CategoriesController extends Controller
         $category->name = $request['name'];
         $category->save();
 
-        return redirect(route('categories.index'))->withStatus(__('Category successfully updated.'));
+        return redirect(route('categories.index'))->withStatus(__('Categoria editada correctament.'));
     }
 
     /**
@@ -90,6 +90,6 @@ class CategoriesController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return redirect(route('categories.index'))->withStatus(__('Category successfully deleted.'));
+        return redirect(route('categories.index'))->withStatus(__('Categoria eliminada correctament.'));
     }
 }

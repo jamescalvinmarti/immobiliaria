@@ -50,7 +50,7 @@ class UserController extends Controller
         $user->password = Hash::make($request['password']);
         $user->save();
 
-        return redirect(route('user.index'))->withStatus(__('User successfully created.'));
+        return redirect(route('user.index'))->withStatus(__('Usuari creat correctament.'));
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
         $user->email = $request['email'];
         $user->save();
 
-        return redirect(route('user.index'))->withStatus(__('User successfully updated.'));
+        return redirect(route('user.index'))->withStatus(__('Usuari modificat correctament.'));
     }
 
     /**
@@ -94,6 +94,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect(route('user.index'))->withStatus(__('User successfully deleted.'));
+        return redirect(route('user.index'))->withStatus(__('Usuari eliminat correctament.'));
     }
 }

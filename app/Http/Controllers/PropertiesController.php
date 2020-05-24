@@ -69,7 +69,7 @@ class PropertiesController extends Controller
 
         $property->save();
 
-        return redirect(route('properties.index'))->withStatus(__('Property successfully created.'));
+        return redirect(route('properties.index'))->withStatus(__('Propietat creada correctament.'));
     }
 
     /**
@@ -135,7 +135,7 @@ class PropertiesController extends Controller
 
         $property->save();
 
-        return redirect(route('properties.index'))->withStatus(__('Property successfully updated.'));
+        return redirect(route('properties.index'))->withStatus(__('Propietat modificada correctament.'));
     }
 
     /**
@@ -151,7 +151,7 @@ class PropertiesController extends Controller
         // delete all the related images first, then the property
         $property->images()->delete();
         $property->delete();
-        return redirect(route('properties.index'))->withStatus(__('Property successfully deleted.'));
+        return redirect(route('properties.index'))->withStatus(__('Propietat eliminada correctament.'));
     }
 
     /**
@@ -171,7 +171,7 @@ class PropertiesController extends Controller
         $property->save();
 
         if ($property->published) {
-            return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully published.'));
+            return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Propietat publicada correctament.'));
         }
         return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully unpublished.'));
     }

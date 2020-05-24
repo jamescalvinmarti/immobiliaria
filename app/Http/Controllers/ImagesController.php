@@ -47,7 +47,7 @@ class ImagesController extends Controller
 
         $image->save();
 
-        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Property successfully updated.'));
+        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Propietat editada correctament.'));
     }
 
     /**
@@ -62,6 +62,6 @@ class ImagesController extends Controller
         $property = $image->property;
         $image->delete();
 
-        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Image successfully deleted.'));
+        return redirect(route('properties.show', ['property' => $property]))->withStatus(__('Imatge eliminada correctament.'));
     }
 }

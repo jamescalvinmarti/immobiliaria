@@ -197,6 +197,7 @@ h2.title {
     background-color: white;
     border-radius: 4px;
     margin: 15px 0;
+    box-shadow: 0 20px 30px -16px rgba(9, 9, 16, .2);
 }
 
 .property-container .image-container {

@@ -44,7 +44,7 @@ class ZonesController extends Controller
         $zone->name = $request['name'];
         $zone->save();
 
-        return redirect(route('zones.index'))->withStatus(__('Zones successfully created.'));
+        return redirect(route('zones.index'))->withStatus(__('Zona creada correctament.'));
     }
 
     /**
@@ -77,7 +77,7 @@ class ZonesController extends Controller
         $zone->name = $request['name'];
         $zone->save();
 
-        return redirect(route('zones.index'))->withStatus(__('Zone successfully updated.'));
+        return redirect(route('zones.index'))->withStatus(__('Zona modificada correctament.'));
     }
 
     /**
@@ -90,6 +90,6 @@ class ZonesController extends Controller
     {
         $zone = Zone::findOrFail($id);
         $zone->delete();
-        return redirect(route('zones.index'))->withStatus(__('Zone successfully deleted.'));
+        return redirect(route('zones.index'))->withStatus(__('Zona eliminada correctament.'));
     }
 }
