@@ -13,11 +13,11 @@ Per instal·lar el projecte a la teva màquina local segueix els passos:
 - Executar la comanda `php artisan key:generate` al terminal.
 - Executar la comanda `php artisan migrate` per crear les taules.
 - Executar la comanda `php artisan db:seed` per omplir amb dades les taules.
-- Executar `php artisan serve` per iniciar el servidor. Accedir a (localhost:8000) per veure la web.
+- Executar `php artisan serve` per iniciar el servidor. Accedir a localhost:8000 per veure la web.
 
 ## Usage
 
-- Accedir a (localhost:8000/login) per entrar a la oàgina de login.
+- Accedir a localhost:8000/login per entrar a la pàgina de login.
 - Les dades per accedir són email: ```admin@black.com``` i contrasenya: ```secret```
 
 ## Tests
