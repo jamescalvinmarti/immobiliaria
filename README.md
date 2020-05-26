@@ -7,7 +7,8 @@ Pots trobar la versió online del projecte a (https://quiet-cove-65965.herokuapp
 Per instal·lar el projecte a la teva màquina local segueix els passos:
 
 - Clonar el projecte amb `git clone https://github.com/jamescalvinmarti/immobiliaria.git` des del terminal.
-- Accedir a la arrel del projecte amb `cd immobiliaria`
+- Accedir a la arrel del projecte amb `cd immobiliaria`.
+- Executar la comanda `composer install`.
 - Crear un arxiu que es digui **.env** amb el contingut de l'arxiu **env.example**
 - Canviar les dades de l'arxiu **.env**. Nom de la teva base de dades local a `DB_DATABASE`, nom de l'usuari a `DB_USERNAME` i la contrasenya a `DB_PASSWORD`.
 - Executar la comanda `php artisan key:generate` al terminal.
